@@ -1,0 +1,67 @@
+<!-- views/pages/upload.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include ../partials/head %>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+
+  <script>
+  $.getJSON('http://soundcloud.com/oembed?callback=?',
+{format: 'js', url: "<%= set.soundcloudUrl %>", iframe:true},
+function(data) {
+  console.log('done getting soundcloud oembed',data);
+  $('#your_player_html').html(data['html']);
+})
+</script>
+
+
+</head>
+
+
+<body>
+
+  <header>
+    <% include ../partials/header %>
+  </header>
+
+  <main>
+
+
+
+
+<h1><%= pageTitle %></h1>
+
+<p>Date: <%= set.when%></p>
+
+<p>line up: <%= set.lineUp%></p>
+
+<p>Address: <%= set.address %></p>
+
+<p>Starts at: <%= set.startTime %></p>
+
+<p>Ends at: <%= set.endTime %></p>
+
+
+<p>Price: <%= set.price %></p>
+
+<p>Buy tickets: <%= set.buy %></p>
+
+
+<div id='your_player_html'>The player</div>
+
+
+<a href="/sets">Return to upcoming parties' sets</a>
+
+
+</main>
+
+<footer>
+  <% include ../partials/footer %>
+</footer>
+
+</body>
+</html>

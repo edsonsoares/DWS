@@ -1,0 +1,100 @@
+<!-- views/pages/upload.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<% include ../partials/head %>
+</head>
+
+<body>
+
+	<header>
+		<% include ../partials/header %>
+	</header>
+
+	<main>
+
+		<form action= "/upload" method="post">
+
+
+			<label for="soundcloudUrl">Paste a Soundcloud link</lable>
+				<input type="text" name="soundcloudUrl" value="" id="soundcloudUrl" />
+
+				<br><br>
+
+				<label for="name">Set Title</lable>
+					<input type="text" name="name" value="" id="name" />
+
+					<br><br>
+
+					<label for="when">Date</lable>
+						<input type="date" name="when" value="" id="when" />
+
+
+						<br><br>
+
+
+						<label for="lineup">Line up</label>
+						<textarea name="lineup" rows="4" cols="40" id="lineup"></textarea>
+
+						<br><br>
+
+
+						<label for="description">Description</label>
+						<textarea name="description" rows="8" cols="40" id="description"></textarea>
+
+						<br><br>
+
+
+
+						<label for="address">Address</label>
+						<textarea name="address" rows="8" cols="40" id="address"></textarea>
+
+
+
+						<br><br>
+
+
+						<label for="startTime">Starts at</label>
+						<input type="text" name="startTime" value="" id="startTime" />
+
+
+
+						<br><br>
+
+
+						<label for="endTime">Ends at</label>
+						<input type="text" name="endTime" value="" id="endTime"
+
+						<br><br>
+
+
+						<label for="city">City</label>
+						<input type="text" name="city" value="" id="city" />
+
+						<br><br>
+
+
+						<label for="price">Price</label>
+						<input type="text" name="price" value="" id="price" />
+
+
+						<br><br>
+
+
+						<label for="buy">Paste the link where you sell tickets</label>
+						<input type="text" name="buy" value="" id="buy" />
+
+
+
+						<p><input type="submit" value="Submit"></p>
+					</form>
+
+				</main>
+
+				<footer>
+					<% include ../partials/footer %>
+				</footer>
+
+			</body>
+			</html>

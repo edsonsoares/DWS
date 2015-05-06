@@ -1,0 +1,14 @@
+<h1>Upcoming in NYC</h1>
+
+<p><a href="/upload">list a new event</a>.</p>
+
+<ul>
+<% sets.forEach(function(set){ %>
+
+	<p><b><%= set.setTitle %></b></p>
+	<p>Attractions: <%= set.lineUp %></a></p>
+	<p>About: <%= set.description %></a></p>
+
+
+<% }) %>
+</ul>

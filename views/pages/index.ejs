@@ -1,0 +1,78 @@
+<!-- views/pages/index.ejs -->
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+
+<body>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+
+<script>
+$.getJSON('http://soundcloud.com/oembed?callback=?',
+  {format: 'js', url: "<%= set.soundcloudUrl %>", iframe:true},
+  function(data) {
+    console.log('done getting soundcloud oembed',data);
+    $('#your_player_html').html(data['html']);
+  })
+</script>
+
+
+<header>
+        <% include ../partials/header %>
+</header>
+
+<main>
+
+
+<h2>Let the music take you out</h2>
+
+<h3>Hear what local DJs and promoters are playing <br>
+Discover upcoming parties near you</h3>
+
+
+<h4>[Today or Upcoming]</h4>
+
+
+<ul>
+<% var i = 0; %>
+
+<% sets.forEach(function(set){ %>
+
+	<p><b><a href="/sets/<%= set._id%>"><%= set.setTitle %></a></b></p>
+  <p>Date: <%= set.when%></p>
+	<p>Attractions: <%= set.lineUp %></p>
+	<p>About: <%= set.description %></p>
+ 	<% i++; %>
+
+ 	<div id='your_player_html<%= i; %>'>The player</div>
+
+<script>
+$.getJSON('http://soundcloud.com/oembed?callback=?',
+  {format: 'js', url: "<%= set.soundcloudUrl %>", iframe:true},
+  function(data) {
+    console.log('done getting soundcloud oembed',data);
+    $('#your_player_html<%= i; %>').html(data['html']);
+  })
+</script>
+
+
+<% }) %>
+
+</ul>
+ <main>
+
+
+
+ <footer>
+         <% include ../partials/footer %>
+ </footer>
+
+
+ </body>
+</html>
